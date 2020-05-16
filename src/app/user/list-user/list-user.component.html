@@ -1,0 +1,52 @@
+<div class="col-md user-container">
+  <h2 style="margin: auto"> Server Details</h2>
+  <!--<button class="btn btn-danger" style="width:100px" (click)="addUser()"> Upload file</button>-->
+  <div class="form-group">
+      <!-- <label for="file">Choose File</label> -->
+      <input type="file"
+             id="file"
+             (change)="handleFileInput($event.target.files)">
+             <button class="btn btn-danger" style="width:100px" (click)="uploadFileToActivity()"> Upload file</button>
+  </div>
+  <table class="table table-bordered table-striped w-auto">
+    <thead class="black white-text">
+    <tr>
+      <th class="hidden">Id</th>
+      <th>Server</th>
+      <th>Source Array</th>
+      <th>Target Array</th>
+      <th>Server DC</th>
+      <th>Client Mnemonic</th>
+      <th>Product Owner Mnemonic</th>
+      <th>Client Owner</th>
+      <th>Scheduled Date</th>
+      <th>Scheduled Time</th>
+      <th>Status</th>
+      <th>Approved</th>
+      <th>CR</th>
+      <th>Action</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let serverdto of serverdtos">
+      <td class="hidden">{{serverdto.id}}</td>
+      <td>{{serverdto.serverName}}</td>
+      <td>{{serverdto.sourceArray}}</td>
+      <td>{{serverdto.targetArray}}</td>
+      <td>{{serverdto.serverDC}}</td>
+      <td>{{serverdto.clientMnemonic}}</td>
+      <td>{{serverdto.productOwner}}</td>
+      <td>{{serverdto.clientOwner}}</td>
+      <td>{{serverdto.scheduledDate}}</td>
+      <td>{{serverdto.scheduledTime}}</td>
+      <td>{{serverdto.status}}</td>
+      <td>{{serverdto.approved}}</td>
+      <td>{{serverdto.crNum}}</td>
+      <td>
+        <!-- <button class="btn btn-success" (click)="deleteUser(serverdto)"> Delete</button> -->
+        <button class="btn btn-success" (click)="sendMail(serverdto)" style="margin-left: 20px;"> Send mail</button></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
