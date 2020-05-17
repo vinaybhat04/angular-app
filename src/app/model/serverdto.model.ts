@@ -10,8 +10,11 @@ export class ServerDto {
   clientOwner: any;
   scheduledDate: any;
   scheduledTime: any;
+  size: any;
+  mode: any;
   status: any;
   approved: any;
   crNum: any;
+
 
 }
