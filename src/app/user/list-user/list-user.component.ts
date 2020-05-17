@@ -28,7 +28,7 @@ export class ListUserComponent implements OnInit {
   sendMail(serverdto: ServerDto): void {
     this.apiService.sendMail(serverdto.id)
       .subscribe( data => {
-        this.serverdtos = this.serverdtos.filter(u => u !== serverdto);
+        
       })
   };
 

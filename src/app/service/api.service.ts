@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {User} from "../model/user.model";
+import {ServerDto} from "../model/serverdto.model";
 import {Observable} from "rxjs/index";
 import {ApiResponse} from "../model/api.response";
 
@@ -14,14 +15,14 @@ export class ApiService {
     return this.http.post<ApiResponse>('http://localhost:8080/' + 'api/login', loginPayload);
   }
 
-  getUsers() : Observable<ApiResponse> {
-    return this.http.get<ApiResponse>(this.baseUrl + 'getServerData');
+  getUsers() : Observable<ServerDto[]> {
+    return this.http.get<ServerDto[]>(this.baseUrl + 'getServerData');
   }
   sendMail(id: number) : Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.baseUrl + 'sendMail/' + id);
+    return this.http.post<ApiResponse>(this.baseUrl + 'sendMail/' + id, {});
   }
 
-  postFile(fileToUpload: File): Observable<boolean> {
+  postFile(fileToUpload : File): Observable<Object> {
     const endpoint = this.baseUrl + 'imprtServerFile/' + 1;
     const formData: FormData = new FormData();
     formData.append('file', fileToUpload, fileToUpload.name);
